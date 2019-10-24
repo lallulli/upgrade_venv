@@ -85,7 +85,7 @@ def filewalk(path, callback_file=None, callback_dir=None, process_file_links=Tru
 		if os.path.isdir(f_path) and (process_dir_links or not os.path.islink(f_path)):
 			if callback_dir is not None:
 				callback_dir(path, f)
-			filewalk(f_path, callback_file, callback_dir)
+			filewalk(f_path, callback_file, callback_dir, process_file_links, process_dir_links)
 		elif callback_file is not None and (process_file_links or not os.path.islink(f_path)):
 				callback_file(path, f)
 
